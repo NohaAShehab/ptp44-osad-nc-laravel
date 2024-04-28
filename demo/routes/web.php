@@ -107,3 +107,4 @@ Route::get("/test_template", function(){
 ### we need to move to the controller
 use App\Http\Controllers\StudentController;
 Route::get("/iti/home",[StudentController::class,'home'] );
+Route::get("/iti/{id}", [StudentController::class,'show']);

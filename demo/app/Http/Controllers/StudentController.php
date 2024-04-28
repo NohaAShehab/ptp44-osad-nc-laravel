@@ -21,4 +21,13 @@ class StudentController extends Controller
 
         return view("itihome", ["students"=>$this->students]);
     }
+
+    function show($id){
+        if ($id <count($this->students)){
+            $std =$this->students[$id-1];
+            return view('show', ["student"=>$std]);
+        }
+        return abort(404);
+
+    }
 }

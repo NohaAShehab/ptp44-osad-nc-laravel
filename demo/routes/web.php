@@ -115,3 +115,5 @@ use App\Http\Controllers\ITIController;
 Route::get("/iti/home",[ITIController::class,'home'] )->name('iti.home');
 Route::get("/iti/{id}", [ITIController::class,'show'])->name('iti.show')
 ->where('id', '[0-9]+');
+
+

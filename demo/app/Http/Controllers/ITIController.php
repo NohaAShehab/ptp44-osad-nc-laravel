@@ -30,4 +30,13 @@ class ITIController extends Controller
         return abort(404);
 
     }
+
+    function edit($id){
+        if ($id <=count($this->students)){
+            $std =$this->students[$id-1];
+            return view('edit', ["student"=>$std]);
+        }
+        return abort(404);
+
+    }
 }

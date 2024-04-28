@@ -1,0 +1,22 @@
+1-create project itiblog
+
+functionality (use the controller --> PostController )
+    1- index --> display all posts --> hard coded
+    2- show --> id --> return with post
+    3- create --> return view contains form 00> used in create
+    4- edit ---> return view contains edit form --> display post info
+    5- destroy --> ask me are you want to delete post
+
+ to construct these routes
+
+ get: /posts ===> index
+  get: /posts/id ===> show
+  get: /posts/create ==> create
+ get:  /posts/id/edit ===> edit page
+delete: /posts/id ===> delete
+
+hints:
+1- use layouts , bootstrap
+2- show -> show data in card
+
+post_info = ["id", "title",'body', 'image']

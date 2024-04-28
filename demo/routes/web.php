@@ -95,3 +95,9 @@ Route::get("/test_template", function(){
     ];
     return view("landing",["students"=>$students, "name"=>"noha"]);
 });
+
+
+Route::get("/iti/home", function (){
+
+    return view("itihome");
+});

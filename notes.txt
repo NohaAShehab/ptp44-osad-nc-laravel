@@ -6,3 +6,9 @@ https://laracasts.com/series/30-days-to-learn-laravel-11
 
 2- starting development server
     php artisan serve
+
+4- views with blade templates
+https://laravel.com/docs/11.x/blade#main-content
+
+
+5- define general structure for views

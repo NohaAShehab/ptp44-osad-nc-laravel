@@ -60,8 +60,38 @@ Route::get("/user/{id}", function ($id){
 
 
 
+# define route that returns with view directly
+
+Route::view("/home", "home"); # return html page
+
+
+# apply logic before returning with view
+//Route::get("/homepage", function (){
+//    return view("homepage");
+//});
+
+# send data to the page
+Route::get("/homepage", function (){
+    $students = [
+        ['id'=>1, 'name'=>'hussien', 'salary'=>20000],
+        ['id'=>2, 'name'=>'noha', 'salary'=>20000],
+        ['id'=>3, 'name'=>'alaa', 'salary'=>25000],
+        ['id'=>4, 'name'=>'omnia', 'salary'=>50000],
+    ];
+    return view("homepage",["students"=>$students]);
+});
 
 
 
+# blade template engine
 
+Route::get("/test_template", function(){
 
+    $students = [
+        ['id'=>1, 'name'=>'hussien', 'salary'=>20000],
+        ['id'=>2, 'name'=>'noha', 'salary'=>20000],
+        ['id'=>3, 'name'=>'alaa', 'salary'=>25000],
+        ['id'=>4, 'name'=>'omnia', 'salary'=>50000],
+    ];
+    return view("landing",["students"=>$students, "name"=>"noha"]);
+});

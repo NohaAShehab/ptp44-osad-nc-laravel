@@ -1,0 +1,8 @@
+
+
+install laravel ==> create laravel project
+
+https://laracasts.com/series/30-days-to-learn-laravel-11
+
+2- starting development server
+    php artisan serve

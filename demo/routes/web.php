@@ -105,6 +105,13 @@ Route::get("/test_template", function(){
 
 
 ### we need to move to the controller
-use App\Http\Controllers\StudentController;
-Route::get("/iti/home",[StudentController::class,'home'] );
-Route::get("/iti/{id}", [StudentController::class,'show']);
+//use App\Http\Controllers\StudentController;
+//Route::get("/iti/home",[StudentController::class,'home'] );
+//Route::get("/iti/{id}", [StudentController::class,'show']);
+
+
+# introduce url names
+use App\Http\Controllers\ITIController;
+Route::get("/iti/home",[ITIController::class,'home'] )->name('iti.home');
+Route::get("/iti/{id}", [ITIController::class,'show'])->name('iti.show')
+->where('id', '[0-9]+');

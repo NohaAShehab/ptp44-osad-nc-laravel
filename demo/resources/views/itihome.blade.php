@@ -15,7 +15,9 @@
                 <td> {{$student['id']}}</td>
                 <td> {{$student['name']}}</td>
                 <td> {{$student['salary']}}</td>
-                <td> <a href="/iti/{{$student['id']}}" class="btn btn-info">Show  </a></td>
+{{--                <td> <a href="/iti/{{$student['id']}}" class="btn btn-info">Show  </a></td>--}}
+                <td> <a href="{{route('iti.show',$student['id'] )}}" class="btn btn-info">Show  </a></td>
+
             </tr>
 
         @endforeach

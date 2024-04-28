@@ -1,4 +1,5 @@
 <?php
+## here you can register your routes to your application
 
 use Illuminate\Support\Facades\Route;
 
@@ -97,7 +98,12 @@ Route::get("/test_template", function(){
 });
 
 
-Route::get("/iti/home", function (){
+//Route::get("/iti/home", function (){
+//
+//    return view("itihome");
+//});
 
-    return view("itihome");
-});
+
+### we need to move to the controller
+use App\Http\Controllers\StudentController;
+Route::get("/iti/home",[StudentController::class,'home'] );

@@ -12,3 +12,7 @@ https://laravel.com/docs/11.x/blade#main-content
 
 
 5- define general structure for views
+https://laravel.com/docs/11.x/blade#building-layouts
+
+6- controllers
+https://laravel.com/docs/11.x/controllers#main-content

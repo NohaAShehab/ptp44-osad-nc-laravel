@@ -28,3 +28,11 @@ https://laravel.com/docs/11.x/migrations#available-column-types
 
 --> create index
 https://laravel.com/docs/11.x/migrations#indexes
+
+
+---> any change you need to apply on db tables --> migration file
+    --> rollback all migrations --> write new changes  ==> run migration
+
+    --> create new migration file reflect changes you need to implement.
+    modify len of name field
+    php artisan make:migration alter_name_in_students_table  --table=students

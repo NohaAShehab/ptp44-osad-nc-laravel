@@ -33,7 +33,7 @@
 </nav>
 <div class="container">
 
-    <div style="background: aqua;">
+    <div>
         @yield('content')
     </div>
 

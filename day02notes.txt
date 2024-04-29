@@ -42,3 +42,6 @@ https://laravel.com/docs/11.x/migrations#indexes
         https://laravel.com/docs/11.x/queries#select-statements
 
     2-use models
+        Create a new Eloquent model class
+        a- create model --> represent students table
+        ORM --> design pattern

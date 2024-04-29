@@ -3,31 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class StudentController extends Controller
 {
     //
-    private $students= [
-    ['id'=>1, 'name'=>'hussien', 'salary'=>20000],
-    ['id'=>2, 'name'=>'noha', 'salary'=>20000],
-    ['id'=>3, 'name'=>'alaa', 'salary'=>25000],
-    ['id'=>4, 'name'=>'omnia', 'salary'=>50000],
-    ];
+
 
     # set of properties
 
     # set of functions/actions
-    function home (){
 
-        return view("itihome", ["students"=>$this->students]);
+    function index(){
+        # select * from table students
+        # 1- use query builder
+//        $students = DB::table('students')->get();
+        $students = DB::table('students')->select('name', 'id')->get();
+        return $students;
     }
 
     function show($id){
-        if ($id <count($this->students)){
-            $std =$this->students[$id-1];
-            return view('show', ["student"=>$std]);
-        }
-        return abort(404);
-
+        # get object from table
+        # return with it
     }
+
+
 }

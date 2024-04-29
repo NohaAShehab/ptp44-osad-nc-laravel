@@ -36,3 +36,9 @@ https://laravel.com/docs/11.x/migrations#indexes
     --> create new migration file reflect changes you need to implement.
     modify len of name field
     php artisan make:migration alter_name_in_students_table  --table=students
+
+---> get data
+    1- laravel query builder
+        https://laravel.com/docs/11.x/queries#select-statements
+
+    2-use models

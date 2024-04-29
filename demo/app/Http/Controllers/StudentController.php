@@ -31,6 +31,7 @@ class StudentController extends Controller
     }
 
     function show($id){
+//        dd($id);
         # get object from table
         # return with it
         # find of object exists - -> with this id
@@ -44,13 +45,46 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);  # return 404 not found if object doesn't exist
         return view('students.show', ['student' => $student]);
     }
-    function create(){}
+    function create(){
+        return view('students.create');
+    }
 
-    function store(Request $request){}
+    function store(){
+//        dd("store function");
+         # get request data
+//        dd($_POST);
+        # get request data
+//        dump(request());
+        $request_parms = request()->all();
+//        dd($request_parms);
+        # create new object
+        $student = new Student();
+        $student->name = $request_parms['name'];
+        $student->email = $request_parms['email'];
+        $student->image = $request_parms['image'];
+        $student->gender = $request_parms['gender'];
+        $student->grade = $request_parms['grade'];
+//        dd($student);
+        # save object
+        $student->save();
+        return to_route("students.show", $student->id);
 
-    function edit($id){}
 
-    function update(Request $request, $id){}
+
+    }
+
+    function edit($id){
+        $student = Student::findOrFail($id);
+        return view('students.edit', ['student' => $student]);
+    }
+
+    function update( $id){
+
+        $student = Student::findOrFail($id);
+        $updated_data = request()->all();
+        dd($student, $updated_data);
+        # do update operation
+    }
 
 
     function destroy($id){

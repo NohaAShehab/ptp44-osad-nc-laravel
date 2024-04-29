@@ -7,6 +7,10 @@
             <div class="card-body">
                 <h5 class="card-title">{{$student->name}}</h5>
                 <p class="card-text">Email:{{$student->email}}</p>
+                <p class="card-text">Created_at:{{$student->created_at}}</p>
+                <p class="card-text">Updated_at:{{$student->updated_at}}</p>
+
+
                 <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>
             </div>
         </div>

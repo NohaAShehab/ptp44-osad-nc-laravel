@@ -1,0 +1,30 @@
+1- list available routes in the project
+php artisan route:list
+
+2- connect laravel project to mysql
+    a- set connections credits
+        username, password , dbname, host , port
+        .env
+    b- install needed drivers
+        laravel prepares this step
+    3- run migration files
+        php artisan migrate
+
+
+*******************I need to perform curd on db ****************************
+--> create table students
+    id , name, email, image, grade , gender
+   1- create migration file
+   https://laravel.com/docs/11.x/migrations#main-content
+
+   php artisan make:migration studentmigration
+   php artisan make:migration create_students_table
+
+--> dive into migration file
+https://laravel.com/docs/11.x/migrations#migration-structure
+
+--> column type
+https://laravel.com/docs/11.x/migrations#available-column-types
+
+--> create index
+https://laravel.com/docs/11.x/migrations#indexes

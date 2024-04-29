@@ -1,0 +1,12 @@
+
+
+while creating post
+    author// posted_by  :: display users in systems
+    use model --> User --> create different users ??
+    factory :: --> use factory to generate 10 users
+    https://laravel.com/docs/11.x/eloquent-factories#main-content
+
+
+in post create ---> add image field to the post
+
+--> pagination in models --> add two lines  --> 5 posts per page

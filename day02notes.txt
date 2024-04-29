@@ -45,3 +45,8 @@ https://laravel.com/docs/11.x/migrations#indexes
         Create a new Eloquent model class
         a- create model --> represent students table
         ORM --> design pattern
+
+
+3- upload image ??
+    1- modify form to accept image -->
+        input type = file ...in from enctype=

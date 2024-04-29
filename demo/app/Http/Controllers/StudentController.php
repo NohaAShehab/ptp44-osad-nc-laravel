@@ -49,19 +49,32 @@ class StudentController extends Controller
         return view('students.create');
     }
 
+    private function file_operations($request){
+        # check if request has file or not
+        if($request->hasFile('image')){
+//            dd("found");
+            # get_image_name
+            $image = $request->file('image');
+            # store in the  students_uploads
+            $filepath=$image->store("images","students_uploads" );
+            return $filepath;
+
+        }
+        return null;
+    }
     function store(){
-//        dd("store function");
-         # get request data
-//        dd($_POST);
-        # get request data
-//        dump(request());
-        $request_parms = request()->all();
+//        dd(request());
+        $request_parms = request();
 //        dd($request_parms);
         # create new object
+        $file_path = $this->file_operations($request_parms);
+//        dd($file_path);
+        $request_parms = request()->all();
+
         $student = new Student();
         $student->name = $request_parms['name'];
         $student->email = $request_parms['email'];
-        $student->image = $request_parms['image'];
+        $student->image = $file_path;
         $student->gender = $request_parms['gender'];
         $student->grade = $request_parms['grade'];
 //        dd($student);

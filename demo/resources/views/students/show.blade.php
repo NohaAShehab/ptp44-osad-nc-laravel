@@ -3,7 +3,7 @@
 @section("content")
         <div class="card" style="width: 18rem;">
             <img height="300"
-                src="" class="card-img-top" alt="...">
+                src="{{asset('images/students/'.$student->image)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$student->name}}</h5>
                 <p class="card-text">Email:{{$student->email}}</p>

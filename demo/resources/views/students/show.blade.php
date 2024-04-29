@@ -10,8 +10,10 @@
                 <p class="card-text">Created_at:{{$student->created_at}}</p>
                 <p class="card-text">Updated_at:{{$student->updated_at}}</p>
 
+{{--                {{ url()->previous() }}--}}
+                <a href="{{ url()->previous() }}" class="btn btn-primary">Back to all students </a>
 
-                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>
+                {{--                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>--}}
             </div>
         </div>
 @endsection

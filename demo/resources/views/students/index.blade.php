@@ -39,5 +39,7 @@
         @endforeach
 
     </table>
+{{ $students->links() }}
+
 
 @endsection

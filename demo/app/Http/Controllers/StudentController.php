@@ -17,16 +17,9 @@ class StudentController extends Controller
     # set of functions/actions
 
     function index(){
-        # select * from table students
-        # 1- use query builder
-//        $students = DB::table('students')->get();
-//        $students = DB::table('students')->select('name', 'id')->get();
-//        return $students;
-        #2- use model to get data
-        $students = Student::all();
-//        dd($students); ## display content of variable
-        #then stop the execution
-//        return $students;
+
+        $students = Student::paginate($perPage = 5, $columns = ['*'], $pageName = 'students');
+
         return view('students.index', ['students' => $students]);
     }
 

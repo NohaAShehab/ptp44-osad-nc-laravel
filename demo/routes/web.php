@@ -124,6 +124,14 @@ Route::get('/students/{id}', [StudentController::class,'show'])
     ->name('students.show');
 
 
+#### request api methods
+# get --> return element/s , post--> create new object , put --> update existing object ,
+# delete ---> delete object
+
+# delete
+Route::delete('/students/{id}', [StudentController::class,'destroy'])
+    ->name('students.destroy');
+
 
 
 

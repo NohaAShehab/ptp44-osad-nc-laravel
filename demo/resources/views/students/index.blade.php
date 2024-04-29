@@ -9,7 +9,9 @@
     you can deal with them as an associative array </h5>
     <table class='table'> <tr> <td>ID </td> <td> Name</td>
             <td> Email</td> <td> Grade</td> <td> Gender</td>
-             <td> Show </td></tr>
+             <td> Show </td>
+            <td> Delete</td>
+            </tr>
         @foreach($students as $student)
             <tr>
 {{--                <td> {{$student['id']}}</td>--}}
@@ -19,8 +21,16 @@
                 <td> {{$student->email}}</td>
                 <td> {{$student->grade}}</td>
                 <td> {{$student->gender}}</td>
-                <td> <a href="{{route('students.show', $student->id)}}" class="btn btn-info">Show  </a></td>
 
+                <td> <a href="{{route('students.show', $student->id)}}" class="btn btn-info">Show  </a></td>
+{{--                <td> <a href="{{route('students.destroy', $student->id)}}" class="btn btn-danger">Delete  </a></td>--}}
+                <td>
+                    <form method="post" action="{{route('students.destroy', $student->id)}}">
+                        @method('delete')
+                        @csrf
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
             </tr>
 
         @endforeach

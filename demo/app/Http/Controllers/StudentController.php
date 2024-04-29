@@ -44,6 +44,22 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);  # return 404 not found if object doesn't exist
         return view('students.show', ['student' => $student]);
     }
+    function create(){}
+
+    function store(Request $request){}
+
+    function edit($id){}
+
+    function update(Request $request, $id){}
+
+
+    function destroy($id){
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return to_route('students.index');
+
+    }
+
 
 
 }

@@ -8,11 +8,18 @@
         @method('put')
         <div class="mb-3">
             <label  class="form-label">Name</label>
-            <input type="text" name="name" class="form-control"  >
+            <input type="text" name="name" value="{{$student->name}}" class="form-control"  >
+            @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label  class="form-label">Email</label>
-            <input type="email"  name='email' class="form-control"  aria-describedby="emailHelp">
+            <input type="email"  name='email' value="{{$student->email}}"
+                   class="form-control"  aria-describedby="emailHelp">
+            @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label  class="form-label">Image</label>
@@ -20,7 +27,10 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">Grade</label>
-            <input type="number" name="grade" class="form-control"  aria-describedby="emailHelp">
+
+            <input type="number" name="grade" class="form-control"
+                   value="{{$student->grade}}"
+                   aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label  class="form-label">Gender</label>

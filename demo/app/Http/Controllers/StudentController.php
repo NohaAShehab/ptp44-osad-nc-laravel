@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use App\Models\Track;
+use App\Http\Requests\StoreStudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 
 
 class StudentController extends Controller
@@ -46,8 +48,9 @@ class StudentController extends Controller
         }
         return null;
     }
-    function store(){
-        $request_parms = request();
+    function store(StoreStudentRequest $request){
+        # first the post request received --> apply validation rules defined in the store-request class
+        $request_parms= $request;
         $file_path = $this->file_operations($request_parms);
         $request_parms = request()->all();
         $request_parms['image'] = $file_path;
@@ -61,11 +64,10 @@ class StudentController extends Controller
         return view('students.edit', ['student' => $student]);
     }
 
-    function update( $id){
-
+    function update(UpdateStudentRequest $request,  $id){
+        $updated_data = $request;
         $student = Student::findOrFail($id);
-        $updated_data = request()->all();
-        dd($student, $updated_data);
+        dd($student, $updated_data->all());
         # do update operation
     }
 

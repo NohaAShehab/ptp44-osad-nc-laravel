@@ -40,7 +40,11 @@ https://laravel.com/docs/11.x/eloquent-relationships#main-content
 
 
 
-
+##########################################
+customized requests
+# validation rules on the request
+--> requests  and validations ?/
+php artisan make:request
 
 
 

@@ -2,16 +2,23 @@
 
 
 @section('content')
+
     <h1> Create new Student </h1>
     <form method="post" action="{{route('students.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label  class="form-label">Name</label>
-            <input type="text" name="name" class="form-control"  >
+            <input type="text" name="name" value="{{old('name')}}" class="form-control"  >
+            @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label  class="form-label">Email</label>
-            <input type="email"  name='email' class="form-control"  aria-describedby="emailHelp">
+            <input type="email"  name='email' class="form-control"  value="{{old('email')}}" aria-describedby="emailHelp">
+            @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label  class="form-label">Image</label>
@@ -19,7 +26,12 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">Grade</label>
-            <input type="number" name="grade" class="form-control"  aria-describedby="emailHelp">
+            <input type="number" name="grade" class="form-control"
+                   value="{{old('grade')}}"
+                   aria-describedby="emailHelp">
+            @error('grade')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label  class="form-label">Gender</label>

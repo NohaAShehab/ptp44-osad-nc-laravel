@@ -2,6 +2,10 @@
 ## here you can register your routes to your application
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ITIController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TrackController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -111,12 +115,10 @@ Route::get("/test_template", function(){
 
 
 # introduce url names
-use App\Http\Controllers\ITIController;
 Route::get("/iti/home",[ITIController::class,'home'] )->name('iti.home');
 Route::get("/iti/{id}", [ITIController::class,'show'])->name('iti.show')
 ->where('id', '[0-9]+');
 
-use App\Http\Controllers\StudentController;
 Route::get('/students', [StudentController::class,'index'])
     ->name('students.index');
 # save new instance
@@ -135,16 +137,12 @@ Route::get('/students/{id}/edit', [StudentController::class,'edit'])
 Route::put('/students/{id}', [StudentController::class,'update'])
     ->name('students.update');
 
-
-#### request api methods
-# get --> return element/s , post--> create new object , put --> update existing object ,
-# delete ---> delete object
-# delete
 Route::delete('/students/{id}', [StudentController::class,'destroy'])
     ->name('students.destroy');
 
 
-
+# generate routes from Resource controller
+Route::resource('tracks', TrackController::class);
 
 
 

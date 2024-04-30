@@ -96,6 +96,7 @@ class StudentController extends Controller
     function destroy($id){
         $student = Student::findOrFail($id);
         $student->delete();
+        # delete image
         return to_route('students.index');
 
     }

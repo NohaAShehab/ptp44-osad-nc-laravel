@@ -1,0 +1,30 @@
+
+
+crud operations ---> Table --> tracks
+
+php artisan make:controller Controlername --model=Modelname
+this will create resource controller -->
+set of functions ... reflect on crud operations need
+
+# if you have resource controller --> you generate routes automatically
+in web.php
+
+Route::resource('tracks', Controller name)
+
+  GET|HEAD        tracks ................................. tracks.index › TrackController@index
+  POST            tracks ..................................tracks.store › TrackController@store
+  GET|HEAD        tracks/create ........................... tracks.create › TrackController@create
+  GET|HEAD        tracks/{track} .......................... tracks.show › TrackController@show
+  PUT|PATCH       tracks/{track} .......................... tracks.update › TrackController@update
+  DELETE          tracks/{track} .......................... tracks.destroy › TrackController@destroy
+  GET|HEAD        tracks/{track}/edit ...................... tracks.edit › TrackController@edit
+
+
+
+
+
+
+
+
+
+

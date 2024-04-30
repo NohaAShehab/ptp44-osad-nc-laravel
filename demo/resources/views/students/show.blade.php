@@ -13,7 +13,7 @@
 {{--                {{ url()->previous() }}--}}
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Back to all students </a>
 
-                {{--                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>--}}
+{{--                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>--}}
             </div>
         </div>
 @endsection

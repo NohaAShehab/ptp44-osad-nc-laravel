@@ -1,0 +1,57 @@
+hint to create model with its associated files
+php artisan make:model Course -r -f -m -s --requests
+
+
+1- When i Click on Delete you must show a warning before deleting and i choose
+between yes to confirm Delete or no
+
+2- modify table and post model to accept creator_id
+    --> create migration file for adding creator to the posts table
+
+- In Index & Show page ,make sure the Created At is formated , so read carbon
+documentation https://carbon.nesbot.com/docs/
+
+- In Edit Or Create Post Creator Field must be drop down list of users
+
+- Create PostSeeder & PostFactory class so that when i run php artisan db:seed it
+seeds posts table with 500 records
+    --> new  --> connect postfactory with user factory
+        in post factory
+
+
+Add restore button on index page to restore deleted posts you will need to use soft
+delete
+https://laravel.com/docs/master/eloquent#soft-deleting
+
+
+- Add comments to post using polymorphic relation and also we need to show who
+commented on post
+https://laravel.com/docs/master/eloquent-relationships#polymorphic-relationships
+post and comments --> one to many
+
+
+
+Add validation using form request files on Store & Update
+https://laravel.com/docs/master/validation#creating-form-requests
+- Title & description are required , minimum length for title is 3
+chars and unique, for description the minimum length is 10
+chars ,make sure when updating post without changing Title
+it still works
+    Also make sure that no one hacks you and send an id of post
+    creator that doesn’t exist in the database
+
+
+- Make sure to display error messages of failed validation
+https://laravel.com/docs/master/validation#quick-displayin
+g-the-validation-errors
+
+
+(new post) ---> new-post -->
+Make our post have slug , using this package ( the slug will be
+generated from the post title , users aren’t allowed to fill slug
+or send it in the request , search for $request->validated()or
+$request->only()
+(Read the package documentation carefully )
+https://github.com/cviebrock/eloquent-sluggable
+
+- Show the slug column In Index page

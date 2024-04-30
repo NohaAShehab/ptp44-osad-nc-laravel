@@ -23,6 +23,7 @@ class StudentFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'image'=>'images/pic1.png',
             'gender'=>'male',
+//            'track'=
             'grade'=>fake()->numberBetween(10,100)
         ];
     }

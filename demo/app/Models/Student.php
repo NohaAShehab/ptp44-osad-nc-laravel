@@ -15,6 +15,7 @@ class Student extends Model
     # define relation between models
     # student studies only in one track
     function track(){
+        # many to one
         return $this->belongsTo(Track::class);
     }
 //    function trackinfo(){

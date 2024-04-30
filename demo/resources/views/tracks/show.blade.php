@@ -14,5 +14,13 @@
 
             </div>
         </div>
+    <div>
+        <h1> Students in this track </h1>
+{{--        {{$track->students}}--}}
+            @foreach($track->students as $std)
+             <li><a href="{{route('students.show', $std->id)}}">{{$std->name}} </a>
+             </li>
+        @endforeach
+    </div>
 @endsection
 

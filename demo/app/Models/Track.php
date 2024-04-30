@@ -13,4 +13,8 @@ class Track extends Model
 //    protected $guarded = ['_token']; # add fields you want not to pass
 
     # track has many students
+    function students(){
+        # one to many
+        return $this->hasMany(Student::class);
+    }
 }

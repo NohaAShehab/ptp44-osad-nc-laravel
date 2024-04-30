@@ -22,5 +22,17 @@
 {{--                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>--}}
             </div>
         </div>
+
+    <div>
+        <h1> My colleagues</h1>
+        @if($student->track_id)
+{{--            {{$student->track->students}}--}}
+                @foreach($student->track->students as $std)
+                    @if($std->id != $student->id)
+                    <li> {{$std->name}}</li>
+                @endif
+                @endforeach
+        @endif
+    </div>
 @endsection
 

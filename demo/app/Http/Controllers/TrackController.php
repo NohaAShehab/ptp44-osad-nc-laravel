@@ -66,9 +66,10 @@ class TrackController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Track $track)
+    public function show(Track $track)  # get object associated with this id
     {
-        //
+        // dd(track)
+        return view('tracks.show', compact('track'));
     }
 
     /**
@@ -77,6 +78,7 @@ class TrackController extends Controller
     public function edit(Track $track)
     {
         //
+        return view('tracks.edit', compact('track'));
     }
 
     /**
@@ -85,6 +87,7 @@ class TrackController extends Controller
     public function update(Request $request, Track $track)
     {
         //
+        dd($track, $request->all());
     }
 
     /**
@@ -93,5 +96,8 @@ class TrackController extends Controller
     public function destroy(Track $track)
     {
         //
+        $track->delete();
+        # don't forget to remove image
+        return to_route('tracks.index');
     }
 }

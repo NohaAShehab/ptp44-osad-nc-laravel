@@ -33,7 +33,7 @@ target- --> student -->studies at only one track
 one to many relationship
 
 db --> migration file
-https://laravel.com/docs/11.x/migrations#foreign-key-constraints
+https://laravel.com/docs/11.x/migrations#foreign-key-constraints  --> done (db)
 
 ORM --> model
 https://laravel.com/docs/11.x/eloquent-relationships#main-content

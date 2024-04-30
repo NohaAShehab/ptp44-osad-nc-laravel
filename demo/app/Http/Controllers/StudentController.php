@@ -54,9 +54,6 @@ class StudentController extends Controller
         $student = Student::create($request_parms);
         $student->save();
         return to_route("students.show", $student->id);
-
-
-
     }
 
     function edit($id){

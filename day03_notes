@@ -28,6 +28,15 @@ validating requests
 https://laravel.com/docs/11.x/validation#main-content
 
 
+elequent relationship
+target- --> student -->studies at only one track
+one to many relationship
+
+db --> migration file
+https://laravel.com/docs/11.x/migrations#foreign-key-constraints
+
+ORM --> model
+https://laravel.com/docs/11.x/eloquent-relationships#main-content
 
 
 

@@ -9,6 +9,7 @@ class Student extends Model
 {
     use HasFactory;
 //    protected $table = 'iti_students';
+protected $fillable=['name', 'email', 'image','grade', 'gender','track_id'];
 }
 
 

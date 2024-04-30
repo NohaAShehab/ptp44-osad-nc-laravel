@@ -40,6 +40,16 @@
             </div>
 
         </div>
+        <div class="mb-3">
+            <label  class="form-label">Track</label>
+            <select class="form-select" aria-label="Default select example" name="track_id">
+                <option selected disabled value=""> Choose track</option>
+                @foreach($tracks as $track)
+                    <option value="{{$track->id}}">{{$track->name}}</option>
+                @endforeach
+
+            </select>
+        </div>
         <button type="submit"
                 class="btn btn-success">Save student</button>
     </form>

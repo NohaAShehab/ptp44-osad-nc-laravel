@@ -20,6 +20,14 @@ Route::resource('tracks', Controller name)
   GET|HEAD        tracks/{track}/edit ...................... tracks.edit › TrackController@edit
 
 
+mass assignemnt
+https://laravel.com/docs/11.x/eloquent#mass-assignment
+
+
+validating requests
+https://laravel.com/docs/11.x/validation#main-content
+
+
 
 
 

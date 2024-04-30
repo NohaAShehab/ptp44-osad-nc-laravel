@@ -40,15 +40,24 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-        //
-//        dd($request->all());
-        $logo_path = $this->saveImage($request);
 
-        # save data in model --> mass assignment
+        # before this step we need to validate form inputs
+//        request()->validate([]);
+        $request->validate([
+            'name'=>'required|min:2|unique:tracks',
+            'about'=>'min:10'
+        ], # customize error message
+            [
+            'name.required'=>'Track must have a name',
+                'name.unique'=>'Track with this name already exists',
+        ]
+        );
+        # if request has errors --> return to create page --> sharing the errors/ old data
+//        via session
+
+        $logo_path = $this->saveImage($request);
         $request_data = $request->all();
-//        dd($request_data);
         $request_data['logo'] = $logo_path;
-//        dd($request_data);
         $track = Track::create($request_data);
         return to_route('tracks.index');
     }

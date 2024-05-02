@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // add service --> GATe --> only track creator can edit / delete it ??
-        Gate::define('update-track', function (User $user, Track $track) {
+        Gate::define('track_update_delete', function (User $user, Track $track) {
             return $user->id === $track->owner_id;
         });
 

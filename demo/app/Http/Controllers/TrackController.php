@@ -16,6 +16,12 @@ class TrackController extends Controller
         $this->middleware('auth');
     }
 
+
+    private function  authorize_user($track){
+        if (! Gate::allows('track_update_delete', $track)) {
+            abort(403);
+        }
+    }
     private function saveImage($request){
         if($request->hasFile('logo')){
             $image = $request->file('logo');
@@ -84,6 +90,7 @@ class TrackController extends Controller
     public function edit(Track $track)
     {
         //
+        $this->authorize_user($track);
         return view('tracks.edit', compact('track'));
     }
 
@@ -92,9 +99,9 @@ class TrackController extends Controller
      */
     public function update(Request $request, Track $track)
     {
-        //
-//        dd($track, $request->all());
-        if(Auth::id()=== $track->owner_id){
+        if (! Gate::allows('track_update_delete', $track)) {
+            abort(403);
+        }
             $updated_image= $this->saveImage($request);
             $request_data = $request->all();
             if ($updated_image){
@@ -102,8 +109,7 @@ class TrackController extends Controller
             }
 
             $track->update($request_data);
-            return to_route('tracks.show', $track);}
-        return abort(401);
+            return to_route('tracks.show', $track);
     }
 
     /**
@@ -112,6 +118,7 @@ class TrackController extends Controller
     public function destroy(Track $track)
     {
         //
+
         $track->delete();
         # don't forget to remove image
         return to_route('tracks.index');

@@ -4,9 +4,8 @@
 @section('content')
 {{--    @dump($students)--}}
 
-    <h1 style="background-color: white;"> All students from db </h1>
-    <h5 style="color:green;"> laravel blade --> if you sending objects to the blade
-    you can deal with them as an associative array </h5>
+    <h1 > All students from db </h1>
+
     <a href="{{route('students.create')}}" class="btn btn-dark">Create new Student </a>
     <table class='table'> <tr> <td>ID </td> <td> Name</td>
             <td> Email</td> <td> Grade</td> <td> Gender</td>

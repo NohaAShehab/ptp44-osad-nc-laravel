@@ -131,6 +131,7 @@
       <path value="$PROJECT_DIR$/demo/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/demo/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/demo/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/demo/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

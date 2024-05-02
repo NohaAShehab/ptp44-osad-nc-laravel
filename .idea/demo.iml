@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/demo/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/demo/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/demo/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/demo/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/demo/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
@@ -121,6 +122,7 @@
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/barryvdh/laravel-debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/demo/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/maximebf/debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />

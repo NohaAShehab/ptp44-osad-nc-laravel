@@ -6,6 +6,12 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+# this is executed when you run command
+# php artisan db:seed --> run seeder for all the db
+
+# to run specific seeder class
+# php artisan db:seed --class=classname
+
 class DatabaseSeeder extends Seeder
 {
     /**

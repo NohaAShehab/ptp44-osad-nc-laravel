@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/demo/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/demo/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/demo/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/composer" />
@@ -118,6 +120,8 @@
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/demo/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/demo/vendor/barryvdh/laravel-debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/demo/vendor/maximebf/debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

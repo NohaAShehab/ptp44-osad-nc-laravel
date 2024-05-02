@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-    {{$student->track}}
+    {{$student}}
         <div class="card" style="width: 18rem;">
             <img height="300"
                 src="{{asset('images/students/'.$student->image)}}" class="card-img-top" alt="...">
@@ -19,7 +19,6 @@
 {{--                {{ url()->previous() }}--}}
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Back to all students </a>
 
-{{--                <a href="{{route("students.index")}}" class="btn btn-primary">Back to all students </a>--}}
             </div>
         </div>
 

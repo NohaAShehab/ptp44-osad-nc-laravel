@@ -118,6 +118,7 @@ class TrackController extends Controller
     public function destroy(Track $track)
     {
         //
+        Gate::authorize('delete', $track);
 
         $track->delete();
         # don't forget to remove image

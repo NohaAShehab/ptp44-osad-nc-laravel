@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Policies\TrackPolicy;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
@@ -29,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('track_update_delete', function (User $user, Track $track) {
             return $user->id === $track->owner_id;
         });
+
+        # register policy class to the model
+        Gate::policy(Track::class, TrackPolicy::class);
 
     }
 }

@@ -23,8 +23,8 @@
                 <td> <a href="{{route('tracks.show', $track->id)}}" class="btn btn-info">Show  </a></td>
 
 
-                @can('track_update_delete', $track)
                     <td> <a href="{{route('tracks.edit', $track->id)}}" class="btn btn-warning">Edit  </a></td>
+                   @can('delete', $track)
                     <td>
                         <form method="post" action="{{route('tracks.destroy', $track->id)}}">
                             @method('delete')
@@ -33,8 +33,7 @@
                         </form>
                     </td>
                 @else
-                    <td> You are not authorized to edit </td>
-                    <td> You are not authorized to delete </td>
+                    <td> You cannot delete this track </td>
                 @endcan
 
             </tr>

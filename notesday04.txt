@@ -39,6 +39,12 @@ when you install auth 0---> provide middleware auth
         --> only track owner --> can update or delete the track
 
 
+## authorized to enter Dr heba's office ?
+Gate :::
+
+operation --> on application --> define --> use many times
+app service providers
+
 
 
 

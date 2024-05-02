@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Track;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 class TrackController extends Controller
 {
+    # only logged_in users can perform operations on tracks
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     private function saveImage($request){
         if($request->hasFile('logo')){
@@ -41,8 +49,7 @@ class TrackController extends Controller
     public function store(Request $request)
     {
 
-        # before this step we need to validate form inputs
-//        request()->validate([]);
+
         $request->validate([
             'name'=>'required|min:2|unique:tracks',
             'about'=>'min:10'
@@ -52,11 +59,10 @@ class TrackController extends Controller
                 'name.unique'=>'Track with this name already exists',
         ]
         );
-        # if request has errors --> return to create page --> sharing the errors/ old data
-//        via session
 
         $logo_path = $this->saveImage($request);
         $request_data = $request->all();
+        $request_data['owner_id']= Auth::id();
         $request_data['logo'] = $logo_path;
         $track = Track::create($request_data);
         return to_route('tracks.index');
@@ -87,7 +93,17 @@ class TrackController extends Controller
     public function update(Request $request, Track $track)
     {
         //
-        dd($track, $request->all());
+//        dd($track, $request->all());
+        if(Auth::id()=== $track->owner_id){
+            $updated_image= $this->saveImage($request);
+            $request_data = $request->all();
+            if ($updated_image){
+                $request_data['logo'] = $updated_image;
+            }
+
+            $track->update($request_data);
+            return to_route('tracks.show', $track);}
+        return abort(401);
     }
 
     /**

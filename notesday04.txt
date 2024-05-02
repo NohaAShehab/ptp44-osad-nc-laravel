@@ -1,0 +1,15 @@
+once you install and use laravel/ui --auth in your app
+generate auth functionality (controller, views, routes )
+
+in old versions --> if you use laravel/ui --> generate migration files
+
+once you logged in to the website
+package --> laravel_ui --> provide methods/directives --> can be used in the blade and
+controller pages
+
+# add student_creator field to the students_table
+1- php artisan make:migration add_creator_id_to_students_table
+
+# 2- define one to many relationship
+
+3- run migration

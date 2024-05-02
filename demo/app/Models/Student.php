@@ -10,7 +10,7 @@ class Student extends Model
 {
     use HasFactory;
 //    protected $table = 'iti_students';
-    protected $fillable=['name', 'email', 'image','grade', 'gender','track_id'];
+    protected $fillable=['name', 'email', 'image','grade', 'gender','track_id','creator_id'];
 
     # define relation between models
     # student studies only in one track
@@ -22,6 +22,10 @@ class Student extends Model
 //        return $this->belongsTo(Track::class,
 //        'track_id','id');
 //    }
+
+    function creator(){
+        return $this->belongsTo(User::class,'creator_id', 'id');
+    }
 }
 
 

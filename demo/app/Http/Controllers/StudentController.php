@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use App\Models\Track;
@@ -36,12 +37,9 @@ class StudentController extends Controller
     }
 
     private function file_operations($request){
-        # check if request has file or not
         if($request->hasFile('image')){
-//            dd("found");
-            # get_image_name
+
             $image = $request->file('image');
-            # store in the  students_uploads
             $filepath=$image->store("images","students_uploads" );
             return $filepath;
 
@@ -49,11 +47,16 @@ class StudentController extends Controller
         return null;
     }
     function store(StoreStudentRequest $request){
-        # first the post request received --> apply validation rules defined in the store-request class
-        $request_parms= $request;
-        $file_path = $this->file_operations($request_parms);
+        $file_path = $this->file_operations($request);
+        $creator_id = Auth::id();  # user object
+//        dd(Auth::id());
         $request_parms = request()->all();
         $request_parms['image'] = $file_path;
+
+        if($creator_id){
+            $request_parms['creator_id']= Auth::id();
+        }
+
         $student = Student::create($request_parms);
         $student->save();
         return to_route("students.show", $student->id);

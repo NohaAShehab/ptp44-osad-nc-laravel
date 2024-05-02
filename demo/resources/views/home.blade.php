@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <h1> Welcome to ITI website </h1>
+                    {{Auth::user()}}
                 </div>
             </div>
         </div>

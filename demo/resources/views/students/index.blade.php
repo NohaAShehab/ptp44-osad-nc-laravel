@@ -8,19 +8,18 @@
 
     <a href="{{route('students.create')}}" class="btn btn-dark">Create new Student </a>
     <table class='table'> <tr> <td>ID </td> <td> Name</td>
-            <td> Email</td> <td> Grade</td> <td> Gender</td>
+            <td> Email</td> <td> Created_by</td> <td> Gender</td>
              <td> Show </td>
             <td> Edit</td>
             <td> Delete</td>
             </tr>
         @foreach($students as $student)
             <tr>
-{{--                <td> {{$student['id']}}</td>--}}
-{{--                <td> {{$student['name']}}</td>--}}
+
                 <td> {{$student->id}}</td>
                 <td> {{$student->name}}</td>
                 <td> {{$student->email}}</td>
-                <td> {{$student->grade}}</td>
+                <td> {{$student->creator ? $student->creator->name : "no creator"}}</td>
                 <td> {{$student->gender}}</td>
                 <td> <a href="{{route('students.show', $student->id)}}" class="btn btn-info">Show  </a></td>
 

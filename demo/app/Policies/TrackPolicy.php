@@ -31,6 +31,11 @@ class TrackPolicy
     public function create(User $user): bool
     {
         //
+//        $user_track_count = Track::where('owner_id',$user->id )->count();
+//        if ($user_track_count >=3){
+//            return false;
+//        }
+//        return true;
     }
 
     /**

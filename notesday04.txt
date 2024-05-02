@@ -50,8 +50,17 @@ use policies
     define policy rule to each action
 
 
+-==> different types of users
+    admin, manager, --
+
+ role field
+----> I need to create custom validation rule
+--> create rule --> any name cannot contains keyword_ "name"
+--> user can only create 3 tracks
 
 
+
+use Rule -->
 
 
 

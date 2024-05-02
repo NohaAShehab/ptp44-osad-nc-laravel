@@ -12,8 +12,13 @@
 {{--            </ul>--}}
 {{--        </div>--}}
 {{--    @endif--}}
+
+    @error('owner_id')
+    <div class="alert alert-danger " >{{ $message }}</div>
+    @enderror
     <form method="post" action="{{route('tracks.store')}}" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" value="{{Auth::id()}}" name="owner_id">
         <div class="mb-3">
             <label  class="form-label">Name</label>
             <input type="text" name="name" class="form-control"

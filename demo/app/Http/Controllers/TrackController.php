@@ -6,6 +6,7 @@ use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Rules\MaxTracksPerUser;
 
 
 class TrackController extends Controller
@@ -46,6 +47,7 @@ class TrackController extends Controller
     public function create()
     {
         //
+//        Gate::authorize('create', Track::class);
         return view('tracks.create');
     }
 
@@ -54,11 +56,12 @@ class TrackController extends Controller
      */
     public function store(Request $request)
     {
-
+//            dd($request->all());
 
         $request->validate([
             'name'=>'required|min:2|unique:tracks',
-            'about'=>'min:10'
+            'about'=>'min:10',
+            'owner_id'=>new MaxTracksPerUser
         ], # customize error message
             [
             'name.required'=>'Track must have a name',

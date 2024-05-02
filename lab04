@@ -1,0 +1,17 @@
+Use php artisan ui:auth , to scaffold the auth page
+-Modify on the current navbar , and make it use the laravel
+default auth navbar , and also we need the link to All Posts
+(Do whatever you see suits the case)
+-Add Authentication middleware on all posts routes , and
+make anyone who isn’t authenticated to redirect back to
+login page
+
+- create policy rule on the posts table to allow only post creator to update or delete the post
+
+- create profile page for the user and display the posts written by him in
+
+Use this package to add Tags to post , the user will enter comma separated tags
+https://github.com/spatie/laravel-tags
+
+Read what is Queue job then create Queue Job called PruneOldPostsJob that
+when dispatched it deletes posts that are created from 1 hour ago

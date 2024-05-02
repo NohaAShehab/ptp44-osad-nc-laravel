@@ -74,11 +74,10 @@ class StudentController extends Controller
     }
 
     function update(UpdateStudentRequest $request,  $id){
-        dd($request->user());
         $updated_data = $request;
         $student = Student::findOrFail($id);
-        dd($student, $updated_data->all());
-        # do update operation
+        $student->update($request->all());
+        return to_route("students.show", $student->id);
     }
 
 

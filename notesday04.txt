@@ -13,3 +13,34 @@ controller pages
 # 2- define one to many relationship
 
 3- run migration
+
+
+-------------------------------
+
+logged_in users // guest in the application
+
+--> set of operations allowed for logged_in users only --> Authentication
+Authentication --> only logged_in users can access/routes // perform actions
+
+Request object saves info about the request user
+
+### routes only authenticated users can access
+https://laravel.com/docs/master/authentication#protecting-routes
+
+
+when you install auth 0---> provide middleware auth
+
+
+//Authorization ??
+    --> depends on the users already logged_in
+        --> permissions// roles --> users --> depend on this roles ---> define allowed actions
+
+        Apply authorization on tracks
+        --> only track owner --> can update or delete the track
+
+
+
+
+
+
+

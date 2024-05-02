@@ -17,7 +17,8 @@ Route::get('/', function () {
 Route::get("/osad", function (){
 
     return "Hello from Ghaza";
-});
+    # use auth middleware in the web.php
+})->middleware('auth');
 
 # define different routes
 

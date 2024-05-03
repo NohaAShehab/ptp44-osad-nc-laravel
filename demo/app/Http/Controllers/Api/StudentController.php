@@ -7,6 +7,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use App\Http\Resources\StudentResource;
 
 class StudentController extends Controller
 {
@@ -29,7 +30,9 @@ class StudentController extends Controller
     {
         //
         $students = Student::all();
-        return $students;
+//        return $students;
+        # return resource for set of objects
+        return StudentResource::collection($students);
     }
 
     /**
@@ -64,7 +67,9 @@ class StudentController extends Controller
         $request_parms['image'] = $file_path;
         $student = Student::create($request_parms);
         $student->save();
-        return $student;
+//        return $student;
+        return new StudentResource($student);
+
     }
 
     /**
@@ -73,7 +78,8 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
-        return $student;
+//        return $student;
+        return new StudentResource($student);
     }
 
     /**
@@ -110,7 +116,9 @@ class StudentController extends Controller
         }
 
         $student->update($request_parms);
-        return $student;
+//        return $student;
+        return new StudentResource($student);
+
 
     }
 
@@ -121,6 +129,7 @@ class StudentController extends Controller
     {
         //
         $student->delete();
-        return 'deleted';
+//        return 'deleted';
+        return response()->json('delete', 204);
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -36,8 +38,27 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
-
         # validate post request
+        $std_validator = Validator::make($request->all(),
+            [
+                'name' => 'required',
+                'email' => 'required|unique:students',
+                'grade' => 'required',
+            ]);
+
+//        # check if request validation failed
+//        dd($std_validator->fails());
+        if ($std_validator->fails()) {
+//            return response()->json($std_validator->errors(), 422);
+            return response()->json(
+                [
+                    'validation_errors' => $std_validator->errors(),
+                    'message' =>'please review your post form data',
+                    'typealert'=>'danger'
+                ], 422
+            );
+        }
+
         $file_path = $this->file_operations($request);
         $request_parms = request()->all();
         $request_parms['image'] = $file_path;
@@ -61,6 +82,36 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         //
+
+        $std_validator = Validator::make($request->all(),
+            [
+                'name' => 'required',
+                'email' => Rule::unique('students')->ignore($student),
+                'grade' => 'required',
+            ]);
+
+
+        if ($std_validator->fails()) {
+            return response()->json(
+                [
+                    'validation_errors' => $std_validator->errors(),
+                    'message' =>'please review your post form data',
+                    'typealert'=>'danger'
+                ], 422
+            );
+        }
+
+        $file_path = $this->file_operations($request);
+        $request_parms = request()->all();
+
+        if($file_path != null){
+//            dd('found', $file_path);
+            $request_parms['image'] = $file_path;
+        }
+
+        $student->update($request_parms);
+        return $student;
+
     }
 
     /**

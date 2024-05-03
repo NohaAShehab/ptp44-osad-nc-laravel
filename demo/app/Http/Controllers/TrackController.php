@@ -102,6 +102,7 @@ class TrackController extends Controller
      */
     public function update(Request $request, Track $track)
     {
+//        dd($request->all());
         if (! Gate::allows('track_update_delete', $track)) {
             abort(403);
         }

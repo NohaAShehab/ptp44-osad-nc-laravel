@@ -1,6 +1,7 @@
 <?php
 ## here you can register your routes to your application
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ITIController;
 use App\Http\Controllers\StudentController;
@@ -158,3 +159,22 @@ Route::resource('tracks', TrackController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
+Route::resource('users', UserController::class);
+
+
+
+
+
+
+
+
+
+
+

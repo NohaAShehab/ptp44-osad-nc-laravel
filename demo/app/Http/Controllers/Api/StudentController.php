@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+
+
+    private function file_operations($request){
+        if($request->hasFile('image')){
+
+            $image = $request->file('image');
+            $filepath=$image->store("images","students_uploads" );
+            return $filepath;
+
+        }
+        return null;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +36,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+
+        # validate post request
+        $file_path = $this->file_operations($request);
+        $request_parms = request()->all();
+        $request_parms['image'] = $file_path;
+        $student = Student::create($request_parms);
+        $student->save();
+        return $student;
     }
 
     /**

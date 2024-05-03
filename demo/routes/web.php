@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ITIController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrackController;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -167,6 +168,51 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('users', UserController::class);
+
+
+######## Login with github
+use Laravel\Socialite\Facades\Socialite;
+
+Route::get('/auth/redirect', function () {
+//    return 'hi';
+    return Socialite::driver('github')->redirect();
+})->name('auth.github');
+
+Route::get('/auth/callback', function () {
+    $githubUser = Socialite::driver('github')->user();
+//    dd($githubUser->id, $githubUser->token,$githubUser->refreshToken);
+    # if user not exists in db --> create it // then login
+    // if users exists --> login directlty
+    // $user->token
+
+    $user = User::updateOrCreate([
+        'github_id' => $githubUser->id,
+    ], [
+        'name' => $githubUser->name,
+        'email' => $githubUser->email,
+        'github_token' => $githubUser->token,
+        'github_refresh_token' => $githubUser->refreshToken,
+        'password'=>$githubUser->token
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/students');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

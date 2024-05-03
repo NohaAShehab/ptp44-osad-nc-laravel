@@ -2,3 +2,9 @@
 if you need to use api in your appliction
 
 install api package
+php artisan install:api
+   INFO  API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.
+
+
+we need controller --> have all functions except create / edit
+    php artisan make:controller Api/StudentController --model=Student --api

@@ -20,7 +20,7 @@ class MaxTracksPerUser implements ValidationRule
         # validate --> current user no of tracks are less than 3 --> max tracks= 3
         $user = Auth::id();
         $user_track_count = Track::where('owner_id',$user )->count();
-        if($user_track_count> 2){
+        if($user_track_count> 100){
             $fail("User can create 3 tracks only ");
         }
 

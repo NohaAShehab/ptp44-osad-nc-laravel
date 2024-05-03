@@ -1,0 +1,7 @@
+lab05
+create apis for your posts models
+--> use eager loading 00> for the posts
+
+create login with github
+
+bonus ==> login with google

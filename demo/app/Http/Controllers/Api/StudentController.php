@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Http\Resources\StudentResource;
@@ -12,6 +13,10 @@ use App\Http\Resources\StudentResource;
 class StudentController extends Controller
 {
 
+    function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
 
     private function file_operations($request){
         if($request->hasFile('image')){
@@ -65,6 +70,7 @@ class StudentController extends Controller
         $file_path = $this->file_operations($request);
         $request_parms = request()->all();
         $request_parms['image'] = $file_path;
+        $request_parms['creator_id']=Auth::id();
         $student = Student::create($request_parms);
         $student->save();
 //        return $student;

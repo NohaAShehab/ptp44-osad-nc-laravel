@@ -8,3 +8,26 @@ php artisan install:api
 
 we need controller --> have all functions except create / edit
     php artisan make:controller Api/StudentController --model=Student --api
+
+
+
+authenticate apis ---> laravel/ui ??
+
+to authenticate apis in laravel --> sanctum
+goto api.php
+https://laravel.com/docs/11.x/sanctum#issuing-mobile-api-tokens
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
